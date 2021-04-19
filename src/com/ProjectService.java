@@ -14,13 +14,13 @@ import org.jsoup.nodes.Document;
 @Path("/Projects") 
 public class ProjectService {
 	
-	Project itemObj = new Project();
+	Project projectObj = new Project();
 	@GET
 	@Path("/")
 	@Produces(MediaType.TEXT_HTML)
 	public String readProjects()
 	 {
-	 return "Hello";
+		return projectObj.readItems();
 	 } 
 
 }

@@ -20,7 +20,7 @@ public class ProjectService {
 	@Produces(MediaType.TEXT_HTML)
 	public String readProjects()
 	 {
-		return projectObj.readItems();
+		return projectObj.readProjects();
 	 } 
 
 }

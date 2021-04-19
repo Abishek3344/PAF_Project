@@ -22,6 +22,36 @@ public class Project {
 				return con;
 		}
 		
+		public String insertItem(String name, String details, String fund) {
+			String output = "";
+			try {
+				Connection con = connect();
+				if (con == null) {
+					return "Error while connecting to the database for inserting.";
+				}
+				// create a prepared statement
+				String query = " insert into project(`projectID`,`projectName`,`projectDetails`,`projectFund`)"
+						+ " values (?, ?, ?, ?)";
+				PreparedStatement preparedStmt = con.prepareStatement(query);
+				// binding values
+				preparedStmt.setInt(1, 0);
+				preparedStmt.setString(2, name);
+				preparedStmt.setString(3, details);
+				preparedStmt.setDouble(4, Double.parseDouble(fund));
+				
+				// execute the statement
+
+				preparedStmt.execute();
+				con.close();
+				output = "Inserted successfully";
+			} catch (Exception e) {
+				output = "Error while inserting the item.";
+				System.err.println(e.getMessage());
+			}
+			return output;
+		}
+
+		
 		public String readProjects()
 		 {
 				String output = "";

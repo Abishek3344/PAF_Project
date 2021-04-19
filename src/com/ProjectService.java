@@ -22,5 +22,15 @@ public class ProjectService {
 	 {
 		return projectObj.readProjects();
 	 } 
+	
+	@POST
+	@Path("/")
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	@Produces(MediaType.TEXT_PLAIN)
+	public String insertItem(@FormParam("projectName") String projectName, @FormParam("projectDetails") String projectDetails,
+			@FormParam("projectFund") String projectFund) {
+		String output = projectObj.insertItem(projectName, projectDetails, projectFund);
+		return output;
+	}
 
 }

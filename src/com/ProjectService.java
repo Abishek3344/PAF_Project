@@ -35,5 +35,25 @@ public class ProjectService {
 		String output = projectObj.insertProject(projectName, projectDetails, projectFund);
 		return output;
 	}
+	
+	@PUT
+	@Path("/")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.TEXT_PLAIN)
+	public String updateProject(String itemData)
+	{
+			//Convert the input string to a JSON object
+			JsonObject projectObject = new JsonParser().parse(itemData).getAsJsonObject();
+	
+			//Read the values from the JSON object
+			String projectID = projectObject.get("projectID").getAsString();
+			String projectName = projectObject.get("projectName").getAsString();
+			String projectDetails = projectObject.get("projectDetails").getAsString();
+			String projectFund = projectObject.get("projectFund").getAsString();
+	
+			String output = projectObj.updateProject(projectID, projectName, projectDetails, projectFund);
+	
+			return output;
+	}
 
 }

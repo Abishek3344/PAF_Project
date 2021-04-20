@@ -139,7 +139,7 @@ public class Project {
 					preparedStmt.setString(1, name);
 					preparedStmt.setString(2, details);
 					preparedStmt.setDouble(3, Double.parseDouble(fund));
-					preparedStmt.setInt(5, Integer.parseInt(ID));
+					preparedStmt.setInt(4, Integer.parseInt(ID));
 				
 					// execute the statement
 					preparedStmt.execute();

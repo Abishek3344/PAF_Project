@@ -80,5 +80,44 @@ public class Product {
 	 
 			return output;
 	 }
+	
+	public String addProduct(String name, String type, String des , String amount)
+	{
+			String output = "";
+		
+			try 
+			{
+					Connection con = connect();
+					
+					if (con == null) {
+					return "Error while connecting to the database for inserting...";
+			}
+			
+					// create a prepared statement
+					String query = " insert into product(`Name`,`Description`,`Type`,`Amount`)"
+									+ " values (?, ?, ?, ?)";
+			
+					PreparedStatement preparedStmt = con.prepareStatement(query);
+			
+					// binding values
+					preparedStmt.setString(1, name);
+					preparedStmt.setString(2, des);
+					preparedStmt.setString(3, type);
+					preparedStmt.setDouble(4, Double.parseDouble(amount));
+			
+					// execute the statement
+
+					preparedStmt.execute();
+					con.close();
+			
+					output = "Product inserted successfully!";
+			} 
+			catch (Exception e) 
+			{
+				output = "Error while inserting new product...";
+				System.err.println(e.getMessage());
+			}
+			return output;
+	}
 
 }

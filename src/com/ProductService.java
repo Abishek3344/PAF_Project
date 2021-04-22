@@ -25,4 +25,17 @@ public class ProductService {
 	 {
 		return productObj.getProducts();
 	 } 
+	
+	@POST
+	@Path("/add")
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	@Produces(MediaType.TEXT_PLAIN)
+	public String insertProject(@FormParam("Name") String name, 
+							@FormParam("Type") String type,
+							@FormParam("Description") String des,
+							@FormParam("Amount") String amount) 
+	{
+		String output = productObj.addProduct(name, type, des,amount);
+		return output;
+	}
 }

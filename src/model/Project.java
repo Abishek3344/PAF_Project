@@ -34,10 +34,10 @@ public class Project {
 					if (con == null)
 					{return "Error while connecting to the database for reading."; }
 					// Prepare the html table to be displayed
-					output = "<table border='1'><tr><th>Project Code</th><th>Project Name</th>" +
+					output = "<table border='1'><tr><th>Project ID</th><th>Project Name</th>" +
 							"<th>Project Details</th>" +
-							"<th>ProjectFund</th>" +
-							"<th>Update</th><th>Remove</th></tr>";
+							"<th>ProjectFund</th>";
+						//     +"<th>Update</th><th>Remove</th></tr>";
 
 					String query = "select * from project";
 					Statement stmt = con.createStatement();
@@ -58,11 +58,13 @@ public class Project {
 						output += "<td>" + projectFund + "</td>";
 		 
 						// buttons
-						output += "<td><input name='btnUpdate' type='button' value='Update'class='btn btn-secondary'></td>"
+					/*	output += "<td><input name='btnUpdate' type='button' value='Update'class='btn btn-secondary'></td>"
 								+ "<td><form method='post' action='items.jsp'>"
 								+ "<input name='btnRemove' type='submit' value='Remove'class='btn btn-danger'>"
 								+ "<input name='itemID' type='hidden' value='" + projectID
 								+ "'>" + "</form></td></tr>";
+								
+								*/
 					}
 		 
 					con.close();

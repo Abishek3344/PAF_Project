@@ -38,4 +38,25 @@ public class ProductService {
 		String output = productObj.addProduct(name, type, des,amount);
 		return output;
 	}
+	
+	@PUT
+	@Path("/")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.TEXT_PLAIN)
+	public String updateProject(String itemData)
+	{
+			//Convert the input string to a JSON object
+			JsonObject projectObject = new JsonParser().parse(itemData).getAsJsonObject();
+	
+			//Read the values from the JSON object
+			String id = projectObject.get("ID").getAsString();
+			String name = projectObject.get("Name").getAsString();
+			String type = projectObject.get("Type").getAsString();
+			String des = projectObject.get("Description").getAsString();
+			String amount = projectObject.get("Amount").getAsString();
+	
+			String output = productObj.updateProduct(id, name,type, des, amount);
+	
+			return output;
+	}
 }

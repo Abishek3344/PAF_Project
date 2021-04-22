@@ -93,24 +93,24 @@ public class Product {
 					return "Error while connecting to the database for inserting...";
 			}
 			
-					// create a prepared statement
-					String query = " insert into product(`Name`,`Description`,`Type`,`Amount`)"
+			// create a prepared statement
+		    String query = " insert into product(`Name`,`Description`,`Type`,`Amount`)"
 									+ " values (?, ?, ?, ?)";
 			
-					PreparedStatement preparedStmt = con.prepareStatement(query);
+			PreparedStatement preparedStmt = con.prepareStatement(query);
 			
-					// binding values
-					preparedStmt.setString(1, name);
-					preparedStmt.setString(2, des);
-					preparedStmt.setString(3, type);
-					preparedStmt.setDouble(4, Double.parseDouble(amount));
+			// binding values
+			preparedStmt.setString(1, name);
+			preparedStmt.setString(2, des);
+			preparedStmt.setString(3, type);
+			preparedStmt.setDouble(4, Double.parseDouble(amount));
 			
-					// execute the statement
-
-					preparedStmt.execute();
-					con.close();
+			// execute the statement
+			preparedStmt.execute();
+			con.close();
 			
-					output = "Product inserted successfully!";
+			output = "Product inserted successfully!";
+			
 			} 
 			catch (Exception e) 
 			{

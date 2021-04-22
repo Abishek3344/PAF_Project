@@ -40,7 +40,7 @@ public class ProductService {
 	}
 	
 	@PUT
-	@Path("/")
+	@Path("/update")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.TEXT_PLAIN)
 	public String updateProject(String itemData)

@@ -64,7 +64,7 @@ public class ProjectService {
 		// Convert the input string to an XML document
 		Document doc = Jsoup.parse(projectData, "", Parser.xmlParser());
 
-		// Read the value from the element <itemID>
+		// Read the value from the element <projectID>
 		String projectID = doc.select("projectID").text();
 		String output = projectObj.deleteProject(projectID);
 		return output;

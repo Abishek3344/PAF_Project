@@ -81,6 +81,33 @@ public class Product {
 			return output;
 	 }
 	
+	public String getProductByID(String ID)
+	{
+		String output = "";
+		
+		try
+		{
+			Connection con = connect();
+ 
+			if (con == null)
+			{return "Error while connecting to database for reading...."; }
+
+			String query = "select * from product where ID =" + ID;
+			
+			// execute the statement
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery(query);
+           
+		}
+		catch (Exception e)
+		{
+			output = "Error while read an item.";
+			System.err.println(e.getMessage());
+		}
+ 
+		return output;
+	}
+	
 	public String addProduct(String name, String type, String des , String amount)
 	{
 			String output = "";

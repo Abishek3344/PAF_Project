@@ -12,7 +12,7 @@ import org.jsoup.*;
 import org.jsoup.parser.*;
 import org.jsoup.nodes.Document;
 
-@Path("/Products") 
+@Path("/") 
 
 public class ProductService {
 	Product productObj = new Product();

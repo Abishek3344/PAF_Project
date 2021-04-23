@@ -26,6 +26,16 @@ public class ProductService {
 		return productObj.getProducts();
 	 } 
 	
+	@GET
+	@Path("/getById")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.TEXT_PLAIN)
+	public String getProject(@QueryParam("ID") String ID)
+	{	
+			String output = productObj.getProductByID(ID);
+			return output;
+	}
+	
 	@POST
 	@Path("/add")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)

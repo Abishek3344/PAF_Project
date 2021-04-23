@@ -5,7 +5,6 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 //For JSON
 import com.google.gson.*;
-
 import model.Product;
 
 //For XML
@@ -19,7 +18,7 @@ public class ProductService {
 	Product productObj = new Product();
 	
 	@GET
-	@Path("/getAll")
+	@Path("/getAll") //url path 
 	@Produces(MediaType.TEXT_HTML)
 	public String readProjects()
 	 {
@@ -27,17 +26,17 @@ public class ProductService {
 	 } 
 	
 	@GET
-	@Path("/getById")
+	@Path("/getById") //url path 
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.TEXT_PLAIN)
-	public String getProject(@QueryParam("ID") String ID)
+	public String getProject(@QueryParam("ID") String ID) // get id from query param
 	{	
 			String output = productObj.getProductByID(ID);
 			return output;
 	}
 	
 	@POST
-	@Path("/add")
+	@Path("/add") //url path 
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.TEXT_PLAIN)
 	public String insertProject(@FormParam("Name") String name, 
@@ -50,10 +49,10 @@ public class ProductService {
 	}
 	
 	@PUT
-	@Path("/update")
+	@Path("/update") //url path 
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.TEXT_PLAIN)
-	public String updateProject(String itemData)
+	public String updateProject(String itemData) // get data from json object
 	{
 			//Convert the input string to a JSON object
 			JsonObject projectObject = new JsonParser().parse(itemData).getAsJsonObject();
@@ -71,10 +70,10 @@ public class ProductService {
 	}
 	
 	@DELETE
-	@Path("/delete")
+	@Path("/delete") //url path 
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.TEXT_PLAIN)
-	public String deleteProject(@QueryParam("ID") String ID)
+	public String deleteProject(@QueryParam("ID") String ID) //get id from query param
 	{	
 			String output = productObj.deleteProduct(ID);
 			return output;

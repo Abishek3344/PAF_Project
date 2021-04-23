@@ -13,7 +13,7 @@ public class Product {
 			{
 				Class.forName("com.mysql.jdbc.Driver");
 
-				//DBServer/DBName, username, password
+				//server , database, username, password
 				con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/paf_product_db", "root", "");
 			}
 			catch (Exception e)
@@ -32,12 +32,12 @@ public class Product {
 	 
 				if (con == null)
 				{return "Error while connecting to database for reading...."; }
-				// Prepare the html table to be displayed
+				
+				// html table to be displayed
 				output = "<table border='1'><tr><th>Project Code</th><th>Product Name</th>" +
 						"<th>Description</th>" +
 						"<th>Product Type</th>" +
-						"<th>Amount</th>" +
-						"<th>Update</th><th>Remove</th></tr>";
+						"<th>Amount</th>";
 
 				String query = "select * from product";
 				Statement stmt = con.createStatement();
@@ -58,18 +58,11 @@ public class Product {
 					output += "<td>" + des + "</td>";
 					output += "<td>" + type + "</td>";
 					output += "<td>" + amount + "</td>";
-	 
-					// buttons
-					output += "<td><input name='btnUpdate' type='button' value='Update'class='btn btn-secondary'></td>"
-							+ "<td><form method='post' action='items.jsp'>"
-							+ "<input name='btnRemove' type='submit' value='Remove'class='btn btn-danger'>"
-							+ "<input name='itemID' type='hidden' value='" + id
-							+ "'>" + "</form></td></tr>";
+					
 				}
 	 
 				con.close();
 				
-				// Complete the html table
 				output += "</table>";
 			}
 			catch (Exception e)

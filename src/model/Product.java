@@ -97,6 +97,21 @@ public class Product {
 			// execute the statement
 			Statement stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery(query);
+			
+            while(rs.next())
+            {
+				String id = Integer.toString(rs.getInt("ID"));
+				String name = rs.getString("Name");
+				String des = rs.getString("Description");
+				String type = rs.getString("Type");
+				String amount = Double.toString(rs.getDouble("Amount"));
+				
+				output += "ID  : " + id + "\n";
+				output	+= "Name  : " + name + "\n";
+				output += "Description  : " + des + "\n";
+				output += "Type  : " + type + "\n";
+				output += "Amount : " + amount + "\n";
+            }
            
 		}
 		catch (Exception e)

@@ -59,4 +59,14 @@ public class ProductService {
 	
 			return output;
 	}
+	
+	@DELETE
+	@Path("/delete")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.TEXT_PLAIN)
+	public String deleteProject(@QueryParam("ID") String ID)
+	{	
+			String output = productObj.deleteProduct(ID);
+			return output;
+	}
 }

@@ -14,7 +14,7 @@ public class Payment {
 	 Class.forName("com.mysql.jdbc.Driver"); 
 	 con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:8081/testdb", "root", ""); 
 	 //For testing
-	 System.out.print("Successfully connected"); 
+	 System.out.print("Successfully connected to dataBase"); 
 	 } 
 	 catch(Exception e) 
 	 { 

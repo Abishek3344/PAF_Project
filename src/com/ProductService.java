@@ -20,7 +20,7 @@ public class ProductService {
 	@GET
 	@Path("/getAll") //url path 
 	@Produces(MediaType.TEXT_HTML)
-	public String readProjects()
+	public String readProducts()
 	 {
 		return productObj.getProducts();
 	 } 
@@ -29,7 +29,7 @@ public class ProductService {
 	@Path("/getById") //url path 
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.TEXT_PLAIN)
-	public String getProject(@QueryParam("ID") String ID) // get id from query param
+	public String getProduct(@QueryParam("ID") String ID) // get id from query param
 	{	
 			String output = productObj.getProductByID(ID);
 			return output;
@@ -39,7 +39,7 @@ public class ProductService {
 	@Path("/add") //url path 
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.TEXT_PLAIN)
-	public String insertProject(@FormParam("Name") String name, 
+	public String insertProduct(@FormParam("Name") String name, 
 							@FormParam("Type") String type,
 							@FormParam("Description") String des,
 							@FormParam("Amount") String amount) 
@@ -52,17 +52,17 @@ public class ProductService {
 	@Path("/update") //url path 
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.TEXT_PLAIN)
-	public String updateProject(String itemData) // get data from json object
+	public String updateProduct(String itemData) // get data from json object
 	{
 			//Convert the input string to a JSON object
 			JsonObject projectObject = new JsonParser().parse(itemData).getAsJsonObject();
 	
 			//Read the values from the JSON object
-			String id = projectObject.get("ID").getAsString();
-			String name = projectObject.get("Name").getAsString();
-			String type = projectObject.get("Type").getAsString();
-			String des = projectObject.get("Description").getAsString();
-			String amount = projectObject.get("Amount").getAsString();
+			String id = productObject.get("ID").getAsString();
+			String name = productObject.get("Name").getAsString();
+			String type = productObject.get("Type").getAsString();
+			String des = productObject.get("Description").getAsString();
+			String amount = productObject.get("Amount").getAsString();
 	
 			String output = productObj.updateProduct(id, name,type, des, amount);
 	

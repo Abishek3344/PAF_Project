@@ -71,10 +71,10 @@ public class Payment {
 	 if (con == null) 
 	 {return "Error while connecting to the database for reading."; } 
 	 // Prepare the html table to be displayed
-	 output = "<table border='1'><tr><th>nameOncard</th><th>cardNumber</th>" +
-	 "<th>expiredDate</th>" + 
-	 "<th>cvv</th>" +
-	 "<th>Update</th><th>Remove</th></tr>"; 
+	 output = "<table border='1'><tr><th>card Name</th><th>Card Number</th>" +
+	 "<th>Expried Date</th>" + 
+	 "<th>CVV</th>" +
+	 "<th>Edit</th><th>Delete</th></tr>"; 
 	 
 	 String query = "select * from payment"; 
 	 Statement stmt = con.createStatement(); 
